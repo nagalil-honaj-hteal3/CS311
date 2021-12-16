@@ -1,7 +1,4 @@
 /**********************************
-Templated created by Kazumi Slott
-CS311
-
 Your name: XXXXXXXXXXXXXXXXXXXXXX
 Your programmer number: XXXX
 Any difficulties?: XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
