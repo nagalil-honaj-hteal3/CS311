@@ -2,6 +2,12 @@
 Your name: XXXXXXXXXXXXXXXXXXXXXXXX
 Your programmer number: XXXXX
 Any difficulties?: XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+
+Best Complexity: O(NlgN)
+Worst Complexity: O(NlgN)
+Auxillary Space: O(n)
+Space/Runtime Stack: O(lgN)
+Not In-place; stable
 ***********************************/
 #include <iostream>
 using namespace std;
