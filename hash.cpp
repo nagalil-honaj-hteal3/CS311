@@ -2,6 +2,11 @@
 Your name: XXXXXXXXXXXXXXXXXXXXXX
 Your programmer number: XXX
 Any difficulties?: XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+
+Space Complexity: O(n) -> for hash table
+SEARCH -> Best Complexity: O(1); Worst Complexity O(n) -> elements at the same index
+INSERT -> Best Complexity: O(1); Worst Complexity O(n), O(1)
+DELETE -> Best Complexity: O(1); Worst Complexity O(n)
 *********************/
 #include <iostream>
 #include <string>
