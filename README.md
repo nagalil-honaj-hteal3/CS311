@@ -1,7 +1,7 @@
 Implementing abstract data structures and algorithms that will include
 
 
-Complexity - Big O, omega W and theta Q
+Complexity - Big O, omega and theta
 STL/ Template / Vector
 Stack class, Queue class
 Operator=, copy constructor
