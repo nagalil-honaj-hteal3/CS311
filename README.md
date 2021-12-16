@@ -1,4 +1,3 @@
-
 Implementing abstract data structures and algorithms that will include, but some will apply
 
 - Complexity - Big O, omega and theta
