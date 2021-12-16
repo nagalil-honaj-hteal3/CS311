@@ -1,4 +1,6 @@
 Implementing abstract data structures and algorithms that will include
+
+
 Complexity - Big O, omega W and theta Q
 STL/ Template / Vector
 Stack class, Queue class
