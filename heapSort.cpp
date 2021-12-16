@@ -2,6 +2,10 @@
 Your name: XXXXXXXXXXXXX
 Your programmer number: XXXXX
 Any difficulties?: XXXXXXXXXXXXXXXXXX
+
+Worst Complexity: O(NlgN)
+Space/Auxillary: O(1)
+In-place; Not stable
 *******************************************/
 #include <iostream>
 using namespace std;
