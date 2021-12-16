@@ -6,7 +6,7 @@ tree classes in C++ or Java. If you have not, check my cs211 as reference. You m
 350) or must be currently taking it to stay in this class. Also you must have passed CS111 and MATH 160
 (calculus I).*
 
-**Mission:** You will learn new data structures and algorithms and learn to choose the right data structure and the right algorithm including: 
+**Mission:** You will learn new data structures and algorithms and learn to choose the right data structure and the right algorithm. Upside for taking the class is as follows: 
 
 • Have you select or come up with the right data structure and the right algorithm for a variety of
 problems.
