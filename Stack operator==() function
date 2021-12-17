@@ -1,0 +1,22 @@
+template <class T>
+bool Stack<T>::operator==(const Stack& other)
+{
+
+   //I could check the sizes of the stacks and returned false if they are different. 
+
+   //This solution shows how to make this function if we don't have size as a data member.
+
+  Node<T>* LHS = this->top;
+  Node<T>* RHS = other.top;
+  while(LHS != NULL && RHS != NULL)
+  {
+     if(LHS->elem != RHS->elem)//the elements are different
+         return false;
+     LHS = LHS->next;
+     RHS = RHS->next;
+  }
+  if(LHS == NULL && RHS == NULL)//the 2 lists are the same length and no mismatches found
+     return true;
+  else //the lists might have the same elements first, but one of the lists could be longer.
+     return false;
+}
