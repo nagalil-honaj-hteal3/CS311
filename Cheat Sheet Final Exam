@@ -1,3 +1,6 @@
+**Link for the Cheat Sheet**
+*https://docs.google.com/document/d/14iSpdkZpMuACqrNpfyER1nYOiTygBF28Srnj6YQ3s1g/edit?usp=sharing*
+
 Copy Constructor for Stack  Deep copy since there is a function, but without a function, it will be a shallow copy
 Template <class T>
 void Stack<T>::copy(const Stack<T>& source) {
