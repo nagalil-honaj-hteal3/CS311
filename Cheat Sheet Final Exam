@@ -1,0 +1,154 @@
+Copy Constructor for Stack  Deep copy since there is a function, but without a function, it will be a shallow copy
+Template <class T>
+void Stack<T>::copy(const Stack<T>& source) {
+this->top = new Node<T>(source.top->elem);
+this->size++;
+Node<T>* p = source.top->next;
+while(p != NULL) {
+      Node<T>* n = source.top;
+      n->next = new Node<T>(p->elem);
+      this->size++;
+      p = p->next;
+      n = n->next;	
+  }
+}____________________________________________________________________________________________________________________
+Proof by Induction – Total Number of levels in full binary tree is log2(n+1) where n is total number of nodes.
+Sketch work: log2(n+1)  N = 7  log28 is 3 levels.
+Base case: (WTS P(1) is true) 
+LHS 1; RHS = log2(1+1) = log22  1, TRUE
+Inductive Step: (WTS P(k) is true then P(k+1) is also true)
+Assume that “P(k+1) = log2[(k+1) + 1]” then the height is also k+1.
+P(k+1) = Nleft + Nright + 1  Nleft is the total num nodes from the left side of root, Nright is the total num nodes from right side of the root, and the 1 is the root itself.  P(k+1) = 2N + 1.
+We can rewrite the following as an exponential.
+P(k) = log2(k+1)  2P(k) = k+1  k = 2P(k) – 1, by Algebra
+By substitution, P(k+1) = 2(2k – 1) + 1; assume k is P(k) from the Algebra step.
+P(k+1) = 2(2k – 1) + 1;  2k+1 – 2 + 1  2k+1 – 1 by distribution.
+P(k+1) = 2k+1 – 1   P(k+1) + 1 = 2k+1  log2(P(k+1) + 1) = k+1
+Thus P(k+1) is true and is proven by induction. (box)_____________________________________________________________
+
+Runtime of the code as function of n?
+int sum = 0; 				Assignments: 2
+for (int i = 1; i <= n; i++)			Outer for loop: repeats n times, i gets updated n times, j = 1  2n
+	for(int j = 1; j <= n; j+=2)		Inner for loop: repeats n/2 times because of j+=2  (n/2)2 = n2 
+ 		sum+= (i+j);		f(n) = n2 + 2n + 2
+Big-O in terms of m and n?			Outputs:
+int sum = 0;				i = 1  j = 1	m is ‘i’ and n is ‘j’  m iterates once 
+for (int i = 1; i <= m; i++)			i = 2  j = 2	where n iterates twice, but will be log instead
+	for (int j = 1; j <= n; j*=2)		i = 3  j = 4
+		sum += (i+j);		i = 4  j = 8	O(m log2n)
+
+Given n data values, an algo processes these n data values with a running time by the equation f(n) = 6n2 + 15n + 75, Prove that f(n) = (n2) 
+1. C1g(n) <= f(n) <= C2g(n) 
+1a. Find Big Omega  f(n) >= C g(n)
+6n2 + 15n + 75 >= 6n2 - n2
+6n2 + 15n + 75 >= 5n2  true for n >= 1  by definition of big Omega (use the 5n^2 for left side)
+1b. Find Big O  
+6n2 + 15n + 75 <= 6n2 + n2. 
+6n2 + 15n + 75 <= 7n2.  75 <= 7n2 – 6n2 - 15n = n2 – 15n. for all n >= 31  by definition of big O (on right side).
+1c. Find Big Theta  5n2 <= 6n2 + 15n + 75 <= 7n2___________________________________________________________________________
+
+Is f(n) = O(n^3)?  Can be proven since n^3 is higher than n^2, must be higher
+Is f(n) = O(n)?  Cannot be proven since n^2 > n
+Is f(n) = Omega(n^3)?  Cannot be proven because n^3 > n^2, must be lower
+Is f(n) = Omega(n)?  Can be proven because n < n^2________________________________________________________________________
+
+Proof by Induction – Total number of nodes in a full trinary tree is log3(2N+1) where N is total number of nodes.
+Base Case: (WTS P(1) is true)
+LHS = 1; RHS = log3(3) = 1. Thus P(1) is true.
+Inductive Step: (WTS P(k) is true then P(k+1) is true)
+P(k+1) = 1 + Nleft + Nmiddle + Nright, where it gets the total number of nodes from the left of the root, nodes below the root (mid), the nodes from the right, and the root itself. 
+P(k+1) = 3N + 1
+P(k) = log3(2k+1)  3P(k)= 2k + 1  2k = 3P(k) – 1  (3P(k) – 1) / 2 = k
+P(k+1) = 3[(3P(k) – 1)/2] + 1  k + 1 = log3(2[P(k+1)] + 1)
+Thus, P(k+1) is true and proven by induction. (box)
+How many children can the root node have? 2 <= # of children <= M
+How many children can an internal node have (excluding leaf and root nodes)? [M/2] <= # of children <= M
+How many keys can the root node have? 1 <= # of children <= M – 1
+How many keys can a non-root node have? [M/2] – 1 <= # of children <= M – 1___________________________________________________
+
+Towers of Hanoi – First, move the top [N-1] disks to middle, move the bottom disk from left to right, and move all disks from middle to right.
+Total number of moves needed to make when having n disks  2n – 1
+Fibonacci – Total number of pushes to the runtime stack (T(n)) when running fib(n)  T(n) = 2f(n) – 1. The runtime stack gets as high as ‘n’
+General formulas (M-nary tree):
+Total number of levels in a perfect M-nary tree from the total number of nodes, N  MB = (M – 1)(N) + 1  logM[(M-1)N + 1]
+Total number of levels in a perfect M-nary tree from the total number of keys/elements, K  B = logM[K + 1]
+Total number of nodes at level L in a worst-case B-tree with M as the degree and N as total number of nodes  L = ([M/2] - 1)N – ([M/2] – 3)
+Total # of levels a worst-case B-tree has where M is the degree and N is the total number of nodes in tree  Q = [M/2]; 2QB-1 = (Q-1)N – (Q-3)
+
+Quick sort – It will be given an array where the pivot will be set as the last index and will have an element from the first index for both elements to be compared. The comparison being made is that every time the pivot has an element less than an index in the array, the element that was compared will be swapped with an element that is greater than the pivot. 
+ 
+Best Complexity: O(N*lgN); Worst Complexity O(n2); AUX O(1); Space/Runtime Stack O(lgN)  Avg O(N)  worst; In-place; not stable
+Merge sort – sort the elements is by splitting up the array in half to sort the elements into a new sorted array. With that, the elements get compared from another element that were both halved up and checks on the element on which is greater or lower. Both elements will be sorted by its respective position and will continue to go to the next halved array and compare that element into the new sorted array. It will continue to do the same process until there are no more elements to compare and will be all sorted onto the new sorted dynamic array.
+ 
+Best Complexity: O(N*lgN); Worst Complexity O(N*lgN); AUX O(N); Space/Runtime Stack O(lgN); Not In-place; Stable
+Radix sort – In the Radix sort algorithm, it is unique compared to the other sorting algorithms where it swaps elements by its value. In this case, it will read from a digit or character when dealing with multiple digits/characters. For that algorithm to sort the following keys, it will read the last characters/digits of the integer/string and will compare that following part and reorganize it based on that bucket that the character/digit it falls under. Once it is done checking that section, it will continue to iterate to the left until there are no more characters/integers left for it to be compared and will output the following from there.  Fastest
+   
+Best Complexity: O(kn); Worst Complexity O(kn); Space O(a) # of possibilities for each place in our program/bucket array; Not In-place; Stable
+Heap sort – The heap sort algorithm is an unsorted array that is slightly similar to a binary tree. What that means is that it will check the following elements inside of the array to make the highest element be the first index/root. The array is checked by having three different functions (build_max_heap, max_heapify, and heapSort). The build_max_heap function will be used to go through the array and call the max_heapify function when finding the highest element to swapping that element with the original root. Without that function, the algorithm will not be able to recognize the highest element needed to be swapped inside of the array. The max_heapify function is used to check that the root is at the correct position inside of the array, especially when having to compare the left and right child of that root to make sure it is balanced on the correct sorted area. It will continue to traverse through the function/used recursively to swap any necessary elements to be moved to the roots/sub roots, and there is no need to sort the whole array in this algorithm. The heapsort function will be used to call the build_max_heap function first to have the heapsort function to run. It will have a loop that will continue to traverse and be cycled recursively until there is nothing left to be swapped and will continue to be decremented once the size reaches zero. NOT SORTED.
+ 
+Worst: O(N*lgN); Space, AUX O(1); In-place; Not Stable
+Selection sort – Selection sort works by having the smallest element from an array to be moved to the front. The element can either be swapped or stayed still when going through the array where if we were to swap it, find the lowest element that is found within the array and swap it with the element greater than the smallest element.
+ 
+Best Complexity: O(n2); Worst Complexity: O(n2); Space O(1); In-place; Not stable
+Bubble sort – The bubble sort algorithm is used to iterate through the array by pairs. That means for every iteration through the algorithm, it will have a pair and that pair will be used to compare which one of the two elements are larger/smaller, so in this case, since it will be dealing elements in reverse order, then it will assign the last element to move forward and have the smaller element go back to the rear end of the array.
+ 
+Worst Complexity: O(n2); Best Complexity O(n)  sorted; Space: O(1); In-place; Stable  n-1 swaps in first iteration, 1 swap n-1th iteration.
+Insertion sort – The insertion sort algorithm is used to having an array be sorted or unsorted before it gets sorted. It will be used to loop around the array to check the element’s value, so if there is an element that has a less value compared with the other elements, it will keep shifting until the element is on the correct position and will decrement through the array so it wouldn’t be used again.
+ 
+Best Complexity: O(n)  sorted; Worst Complexity: O(n2); Space: O(1); In-place; Stable  1 swap in 1st iteration, n-1 swaps in n-1 iteration.
+Hash Table – It is the fast retrievable algorithm that can see the length of the data set or in other words, it stores the following keys onto an array of buckets/slots. It will be required to have a table size to set which of the following buckets are in the respective index of the array by calculating an index from the key.
+ 
+Space Complexity: O(n)  for table; SEARCH Best Complexity: O(1), Worst Complexity O(n)  elements at same index; 
+INSERT Best Complexity O(1), Worst Complexity O(n), O(1); DELETE Best Complexity O(1), Worst Complexity O(n)
+Sequential Search – It searches through a number of indexes inside of an array, which can be in order or out of order. This search will go from one index at a time by starting at the very first index and continue to make its way until the key has been found or until the end of the array if the key has not been found. 
+ 
+Best Complexity: O(1), Worst Complexity: O(n), Average: O(n)  
+Binary Search – A searching algorithm that uses an array that divides itself in half until it finds the key to be searched. There would be three different parts where it would have a left finger, a right finger, and middle point, which would be easily used for dividing the array down. This searching algorithm always must be in ascending order to find the location faster by comparing each key by greatest to least and vice versa.
+ 
+Best Complexity: O(1), Worst Complexity O(lgN), Average O(lgN)  half of elements found @ last step, Space Rec O(lgN), Space Ite O(1)
+Binary Search Tree – The search function in the BST is used to find the element inside of the heap memory and can be done recursively or iteration. For it to be recursively it would need two functions (one public and one private to access the root.) It will reuse the function name as the shift/traverse when going through the tree if the element has not been found, and if it is found it will return the root/subroot that the key has been found at. If the key has not been found inside of the tree, it will return as NULL meaning that the key is not found. For the iteration, similar as to the recursive, it will only have to require one function since the root can be accessed easily and that the pointer has to updated by having a pointer equal to the pointer of the respective direction. 
+SEARCH: Best Complexity: O(1), Worst Complexity: O(n)  if tree is LL; INSERT: Time Complexity: O(h)  needs to go bottom
+MaxLength: Time Complexity O(n)  visit every node/count comparisons, Space O(h); REMOVE: Time Complexity O(h)
+BFT: Time Complexity O(n)  visit every node, Space O(n)  for queue; DFT: Time Complexity O(n), Space O(n)  for stack
+AVL Tree (Insert) – The insertNode function for the AVL tree adds in the following keys into the heap memory but will be a balanced tree rather than an unbalanced tree (BST). The special part about the AVL tree is that it will not have children that will exceed at one side of the tree since there will be a balanced factor to find any violations or the height of how long the tree would be and the weight that each branch is. With the root node, it is not necessary to balance the tree because there is only one node and with the other additional nodes after the root, it is necessary to balance just the following example below after inserting the following elements.
+ 
+Time complexity: O(lgN)
+Graph:
+BFT – Is that it will go through all the vertices that are reachable from the starting vertex. It will look for all the adjacent vertices that comes to the vertex that will be used and will have Boolean to locate the unconnected parts of the graph. It will use the queue that checks the visited parts inside the graph and display the following with what edges have been visited.
+Time Complexity: O(|V| + |E|), Space Complexity: O(|V|)
+DFT – Used to traverse in the heap for every vertex visited, it will also have an unvisited vertex that will be adjacent to the vertex visited. It will also have a condition where if a vertex has no adjacent nodes or all the adjacent vertices are visited, the edge will be the predecessor of the vertex, which means that it will be the connection back to the other vertex. It will continue visiting and backtrack to the vertices.
+Time Complexity: O(|V| + |E|), Space Complexity: O(|V|)
+Dijkstra’s Shortest Path – To find a new value for the vertex that can be chosen in the toBeChecked, which is used as a queue object, to see what will be pushed or popped as it will be used as the weight of the graph. It is also a greedy algorithm where it gets the ratios and find the greatest value and will be used for making the best choice of each state. It also would not work with negative weight since the base number to start with is zero.
+Time Complexity: O((|E| + |V|)lg|V|), Space Complexity O(|V|)  curDistance, toBeChecked, predecessor
+Prim’s minimum spanning tree – To connect an undirected graph that does not require lots of pathways. An example is a GPS where there must be a quick and efficient way to go from point A to point B by eliminating long paths and that there are places connected with each other but traveling with the least amount of time. It also uses the greedy algorithm where it goes with the most logical and crucial choice to lead to the optimal solution.
+Time Complexity: O((|E| + |V|)lg|V|), Space Complexity O(|V|)
+Knapsack:
+Brute Force – In the knapsack problem is used to find the following combinations that it can find based on the solution that it is displayed. For example, if the solution is to fit 10 pounds based off of 3 combinations, this is what the following combinations that can/cannot be made.
+ 
+Time complexity: O(2^n)
+Greedy – Is a method that is used to have three different steps, which is to calculate the ratio of an item presented, sorting the following ratios that are there, and taking the items that has the highest value, so in the case of the following example above of brute force, it will get the highest price/weight of M pounds.
+ 
+Time complexity: O(N*lgN)
+Pattern Matching:
+Brute force – To use a pattern on a text for matching the sets. An example is when having a text of ATCGCG and the pattern will be CGCG.
+ 
+Time complexity: O(mn)
+Knuth-Morris-Pratt – This is similar with the brute force but will be using a pi table that will have the following to avoid any unnecessary checks. It will be having the pi table for having the values to set the pattern and moves just like the following example below.
+    
+Time complexity: O(n)
+Vector:
+Push_back – Adds in elements from the back of the array. This function works similar as to the insert function however it has to add the following keys at the rear and will continue to process the same way. For example, adding three new elements into a newly dynamic array.
+Time complexity: O(n), Space: O(n)  new array
+Delete – Would copy all the following elements on the original array into a new array that would take off one index inside of the newly added array. In short, it just means that it would use two arrays to create the edited array with the deleted key made. For example, deleting element 3 in the array shown below. **DYNAMIC ARRAY
+Time complexity: O(n), Space O(1)  shifts from the right, O(n)  uses a new array
+Insert – Vector similar with the delete function but adding keys into the array. It would continue to use two arrays and add an additional index by copying the original array into the newly created array. For example, inserting the element 3 in the array shown below. **DYNAMIC ARRAY
+Time complexity: O(n), Space O(n)
+
+QUIZ/ASSIGNMENT
+Which technique does the merge sort use? Putting elements together in the right order as merging them.
+Using the radix sort algorithm to sort numbers, do we need to check the least (rightmost) or most (leftmost) significant digit first? Least sig digit
+Which data structure do we use to implement a heap? Array
+All items could map to the same index.  If so, what is the worst-case complexity of searching by a hash table? O(n)
+What is the total number of levels in a balanced binary tree with N nodes? lgN + 1
+Space/Time complexity of factorial, O(N)
+If a node to be removed has 2 children, what do you need to replace the value of the node by? Least value from right/greatest value from left
