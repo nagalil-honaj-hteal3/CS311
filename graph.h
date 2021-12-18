@@ -185,23 +185,32 @@ void graph::BFT(int start)
   //I used do-while to visit all unconnected graphs
   do
     {
-      start = queue.front();
-      //cout << start << " ";
-      queue.pop();
-      for(int i = 0; i < ver_ar[start].size(); i++)
+	num[next] = i++;
+	queue.push(next);
+	while(!queue.empty()) 
 	{
-	  if(!visited[i*])
-	    {
-	      visited[i*] = true;
-	      queue.push(i*);
-	    }
+	   int z = queue.front();
+      	   cout << (char)(z + 'A') << " ";
+	   queue.pop();
+	   for(list<edge*>::iterator u = ver_ar[z].begin(); u != ver_ar[z].end(); u++)
+ 	   {
+		if(num[(u*)->neightbor] == 0)
+		{
+		   num[(u*)->neighbor] = i++;
+		   queue.push((*u)->neighbor);
+		   ar[0] = char(z + 'A');	
+		   ar[3] = char((*u)->neighbor + 'A');
+		   edges += string(ar) + ",";
+		}
+	   }
 	}
-    }while(!queue.empty());
+	next = nextUnvisitedNodes(num);
+    }while(next != -1);
   //Check the manual to figure out what member functions of the queue class you need to use.
   // https://www.cplusplus.com/reference/queue/queue/
   cout << "edges = " << edges << endl;
   //Don't forget to destroy the dynamic array if you used one
-  delete[] visited;
+  delete[] num;
 }
 
 
@@ -210,7 +219,7 @@ void graph::shortestPath(int start)
   int v;//vertex
   //I have 2 dynamic arrays here.
   int* currDist = new int[num_ver];
-  int* pre = new int[num_ver];
+  int* predecessor = new int[num_ver];
   //I used a queue for toBeChecked 
   queue<int> toBeChecked;
   for(int i = 0; i < num_ver; i++)//for all vertices v
@@ -232,7 +241,7 @@ void graph::shortestPath(int start)
 	  if(currDist[(*u)->neighbor] > currDist[v] + (*u)->wt)//if the u > v + weight
 	    {
 	      currDist[(*u)->neighbor] = currDist[v] + (*u)->wt;//curDist(u) = curDist(v)+ weight(edge(vu))
-	      pre[(*u)->neighbor] = v;//predecessor(u) = v
+	      predecessor[(*u)->neighbor] = v;//predecessor(u) = v
 	      toBeChecked.push((*u)->neighbor);//add u toBeChecked if it is not there
 	    }
 	}
@@ -257,9 +266,9 @@ void graph::shortestPath(int start)
 
   //Don't forget to destroy the dynamic arrays
   delete[] currDist;
-  delete[] pre;
+  delete[] predecessor;
 }
-/*
+/* Following below does not run
 void graph::getMin(int ar[], int n, int start)
 {
   int l = 2 * start + 1;//left
