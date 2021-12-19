@@ -42,36 +42,64 @@ The material covered will be based on the following:
 -  P vs NP and Heuristics
 
 ***REFERENCES***
+Big-O Complexity
+  - https://web.mit.edu/16.070/www/lecture/big_o.pdf
+  - http://web.mit.edu/broder/Public/asymptotics-cheatsheet.pdf <- General idea, but will not be imperative to this class
+  - https://www.mathsisfun.com/algebra/asymptote.html <- Asymptote, but not as crucial to use
+  - https://medium.com/@ag.atitesh/complexity-class-5a1d05e92f15 <- Very imperative yet effective especially for the final exam!!! However factorial is **O(N)** not *O(N!).*
+
+Stack
+  - https://www.cplusplus.com/reference/stack/stack/
+  - http://courses.cms.caltech.edu/cs11/material/cpp/donnie/cpp-ops.html
 
 Quick Sort
   - https://www.youtube.com/watch?v=XE4VP_8Y0BU
   - https://www.youtube.com/watch?v=ZHVk2blR45Q
+  - https://en.wikipedia.org/wiki/Quicksort
 
 Merge Sort
   - https://www.youtube.com/watch?v=Ns7tGNbtvV4
+  - https://en.wikipedia.org/wiki/Merge_sort
 
 Radix Sort
   - https://www.youtube.com/watch?v=Uey0-GOMtT8&t=199s
+  - https://en.wikipedia.org/wiki/Radix_sort
 
 Heap Sort (Same YouTube channel)
   - https://www.youtube.com/watch?v=WCm3TqScBM8
   - https://www.youtube.com/watch?v=MiyLo8adrWw
   - https://www.youtube.com/watch?v=onlhnHpGgC4&t=23s
+  - https://en.wikipedia.org/wiki/Heapsort
 
 Hash Table
   - https://www.youtube.com/watch?v=KyUTuwz_b7Q
+  - https://en.wikipedia.org/wiki/Hash_table
 
 Insertion Sort
   - https://www.youtube.com/watch?v=ROalU379l3U
 
-BST
+BST <- Check my CS211 repository
   - https://www.youtube.com/watch?v=DkOswl0k7s4 <- Deletion
 
 AVL
   - https://www.youtube.com/watch?v=EsgAUiXbOBo
 
+M-nary Tree
+  - https://www.cs.usfca.edu/~galles/visualization/BTree.html
+
 Graph
   - https://www.youtube.com/watch?v=gXgEDyodOJU
 
+P (polynomial time) vs NP (nondeterministic polynomial time)
+  - https://en.wikipedia.org/wiki/Integer_factorization
+  - http://www.claymath.org/millennium-problems/p-vs-np-problem
+
+Pattern matching
+  - https://www.youtube.com/watch?v=5i7oKodCRJo&t=187s
+
 Prim's Minimum spanning algo
   - https://www.youtube.com/watch?v=cplfcGZmX7I
+
+*EXTRA PARTS*
+  - https://www.chilimath.com/lessons/advanced-algebra/logarithm-rules/
+  - https://www.chilimath.com/lessons/intermediate-algebra/rules-of-exponents/
