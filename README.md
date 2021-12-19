@@ -41,7 +41,8 @@ The material covered will be based on the following:
 -  Huffman tree for compressing data
 -  P vs NP and Heuristics
 
-***REFERENCES***
+***REFERENCES AND LINKS***
+
 Big-O Complexity
   - https://web.mit.edu/16.070/www/lecture/big_o.pdf
   - http://web.mit.edu/broder/Public/asymptotics-cheatsheet.pdf <- General idea, but will not be imperative to this class
