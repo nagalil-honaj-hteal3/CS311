@@ -1,6 +1,8 @@
 # CS311
 **Data Structures and Algorithms - CSUSM**
 
+***Taught by Professor Kazumi Slott***
+
 *Pre-requisite for CS311 -- CS211 or equivalent. Must have prior experience implementing the stack, queue, linked list and binary search
 tree classes in C++ or Java. If you have not, check my cs211 as reference. You must have already passed discrete math (MATH 270 or
 350) or must be currently taking it to stay in this class. Also you must have passed CS111 and MATH 160
