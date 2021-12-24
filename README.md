@@ -108,4 +108,4 @@ Prim's Minimum spanning algo
   - https://www.chilimath.com/lessons/intermediate-algebra/rules-of-exponents/
   - https://drive.google.com/file/d/1XKIT5-OVlMN7x513Rz3JdWlPOEWKVwx9/view?usp=sharing 
   
-  **^^ NOTES (3rd Link)**
+    **^^ NOTES (3rd Link)**
