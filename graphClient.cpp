@@ -3,11 +3,11 @@
 using namespace std;
 #include "graph.h"
 
-int main()                                                                     \
+int main()                                                                     
 
 {
   cout << "testing unweighted graph--------------------" << endl;
-                                                                               \
+                                                                               
 
   graph g(9); //a to i
 
@@ -27,14 +27,14 @@ int main()                                                                     \
           fin >> v >> u;
         }
 
-      cout << "BFS: ";                                                         \
+      cout << "BFS: ";                                                         
 
-      g.BFT(0);                                                                \
+      g.BFT(0);                                                                
 
-      cout << "DFS: ";                                                         \
+      cout << "DFS: ";                                                         
 
       g.DFT(0);
-    }                                                                          \
+    }                                                                          
 
   fin.close();
 
@@ -59,7 +59,31 @@ int main()                                                                     \
       cout << "Shortest Path: ";
       g2.shortestPath(3);
     }
-  fin.close();                                                                 \
+  fin.close();    
+  
+  ///** FOR WEIGHTED GRAPHS, DO I NEED TO MAKE A CONSTRUCTOR? ANSWER: NO **/
+  //cout << "testing weighted graph--------------------" << endl;
+  //graph g2(10); //a to j
+  //fin.open("graph2.in");
+  //if(!fin)
+  //  cout << "graph2.in doesn't exist" << endl;
+  //else
+  //  {
+  //    fin >> v >> u >> w;
+  //    while(fin)
+  //      {
+  //        g2.addEdge(v,u, w);
+  //        fin >> v >> u >> w;
+  //      }
+
+  //    cout << "BFS: ";
+  //    g2.BFT(0);
+  //    cout << "DFS: ";
+  //    g2.DFT(0);
+  //    cout << "Shortest Path: ";
+  //    g2.shortestPath(3);
+  //  }
+  //fin.close();
 
   return 0;                                                                    \
 
