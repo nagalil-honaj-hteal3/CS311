@@ -10,6 +10,8 @@ Any difficulties?: XXXXXXXXXXXXXXXXXXXXXXX
 #include <iostream>
 #include <queue>//for the BFT -- Breadth First Traversal Function
 #include <list>
+//#include <array>
+
 using namespace std;
 
 class edge
@@ -60,6 +62,7 @@ graph::~graph()
     delete (*u);
   //delete the ver_ar dynamic array
   delete[] ver_ar;
+}
 /*list<edge*>* vertex = new list<edge*>;             
 while(vertex != NULL)
 {
@@ -71,7 +74,6 @@ vertex = temp;
 delete[] ver_ar;//destroy the ver_ar dynamic array
 //The library's list class has a destructor. All nodes belonging to the list will be destroyed by the destructor.
 //https://www.cplusplus.com/reference/list/list/~list/*/
-}
 
 
 //add an edge from v to u with weight w into the graph
@@ -82,9 +84,11 @@ void graph::addEdge(int v, int u, int w)
   //https://www.cplusplus.com/reference/list/list/
   //Don't create an edge object statically, then it would get destroyed as soon as you leave this function. You need to create an edge object dymamically in heap, which will remain in heap even after you leave this function.. Remember "new" operator returns the memory address of the newly created object.
   //I have one line of code in this function.
-  //edge e(u, w);//shallow copy
-ver_ar[v].push_back(new edge(u, w));
-  //w++;
+  //w++; <-- DO NOT INCLUDE
+  //edge e(u, w);//shallow copy <-- DO NOT INCLUDE
+//edge* E = new edge(u, w); <-- ONE WAY
+//ver_ar[v].push_back(E); OR <-- ONE WAY INCLUDED
+ver_ar[v].push_back(new edge(u, w)); 
 }
 
 //start Traversal at start
@@ -160,9 +164,9 @@ void graph::DFT_helper(int v, int i, int* num, string& edges)
       
         DFT_helper((*u)->neighbor, i, num, edges);
       }
-    //
-    
     }
+	//GRAPH :(
+
 }
 
 //start is the index for the start vertex
